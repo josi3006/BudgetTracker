@@ -2,31 +2,56 @@
 
 
 
-const request = window.indexedDB.open('account', 1);
+const request = window.indexedDB.open("budget", 1);
 let db;
 
 
-request.onupgradeneeded = function (e) {
-  const db = request.result;
-  db.createObjectStore('holding', { keyPath: "_id" });
+request.onupgradeneeded = function (event) {
+  const db = event.target.result;
+  db.createObjectStore("holding", { keyPath: "_id" });
 };
 
 
 
-request.onerror = function (e) {
-  console.log("There was an error");
+request.onerror = function (event) {
+  console.log("There was an error: ", event.target.err);
 };
 
 
-request.onsuccess = function (e) {
-  db = request.result;
+request.onsuccess = function (event) {
+  db = event.target.result;
+
+  if (navigator.onLine) {
+
+    console.log('I am gonna do it!');
+
+    processTransactions();
+  }
+}
+
+
+
+
+function saveRecord(record) {
 
   transaction = db.transaction(["holding"], "readwrite");
-  store = tx.objectStore("holding");
+  store = transaction.objectStore("holding");
+  store.add(record);
+}
 
-  db.onerror = function (e) {
-    console.log("error");
+
+
+
+function processTransactions() {
+
+  transaction = db.transaction(["holding"], "readwrite");
+  store = transaction.objectStore("holding");
+
+  db.onerror = function (event) {
+    console.log("Error: ", event);
   };
+
+
   if (method === "put") {
     store.put(object);
   } else if (method === "get") {
@@ -37,8 +62,15 @@ request.onsuccess = function (e) {
   } else if (method === "delete") {
     store.delete(object._id);
   }
-  tx.oncomplete = function () {
+  transaction.oncomplete = function () {
     db.close();
   };
 };
+
+
+
+
+
+window.addEventListener("online", processTransactions);
+
 
