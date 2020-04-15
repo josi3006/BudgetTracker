@@ -8,7 +8,7 @@ let db;
 
 request.onupgradeneeded = function (event) {
   const db = event.target.result;
-  db.createObjectStore("holding", { keyPath: "_id" });
+  db.createObjectStore("budget", { keyPath: "_id" });
 };
 
 
