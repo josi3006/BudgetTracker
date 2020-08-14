@@ -1,5 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#317EFB">
+  <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Codystar&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  <title>Budget Tracker</title>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <nav class="navbar">
+      <div class='slidebox' data-aos='slide-left' data-aos-duration='2400'>Your total is: $<span id="total">0</span></div>
+    </nav>
+
+
+    <div class="form">
+      <input type="text" id="t-name" placeholder="Name of transaction" style="width: 300px;" />
+      <input type="number" min="0" id="t-amount" placeholder="Amt." style="width: 80px;" /><br>
+      <button class="button" id="add-btn" style="background-color: #556b2f;">Deposit</button>
+      <button class="button" id="sub-btn" style="background-color: #b31010;">Spend</button>
+
+      <p class="error"></p>
+    </div>
+
+    <div class="transactions">
+      <table>
+        <thead>
+          <th>Transaction</th>
+          <th>Amount</th>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+      </table>
+    </div>
+
+    <canvas id="myChart"></canvas>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="index.js"></script>
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+        console.log('ServiceWorker registration successful!');
+      }).catch(function (err) {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    }
+  </script>
+
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,4 +138,4 @@
 }
     </script>
 </body>
-</html>
+</html> -->
