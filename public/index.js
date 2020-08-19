@@ -152,10 +152,13 @@ function sendTransaction(isAdding) {
 
 
 function clearForm() {
-  document.querySelector("t-name").val("");
-  document.querySelector("t-amount").val("");
+  document.querySelector("t-name").value = "";
+  document.querySelector("t-amount").value = "";
 
 }
+
+
+
 document.querySelector("#add-btn").onclick = function () {
   clearForm();
   sendTransaction(true);
