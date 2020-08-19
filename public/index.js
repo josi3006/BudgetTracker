@@ -152,8 +152,12 @@ function sendTransaction(isAdding) {
 
 
 function clearForm() {
-  document.querySelector("t-name").value = "";
-  document.querySelector("t-amount").value = "";
+
+  let nameEl = document.querySelector("#t-name");
+  let amountEl = document.querySelector("#t-amount");
+
+  nameEl.value = "";
+  amountEl.value = "";
 
 }
 
