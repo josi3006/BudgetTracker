@@ -151,27 +151,13 @@ function sendTransaction(isAdding) {
 }
 
 
-function clearForm() {
-
-  // let nameEl = document.querySelector("#t-name");
-  // let amountEl = document.querySelector("#t-amount");
-
-  // nameEl.value = "";
-  // amountEl.value = "";
-
-  document.querySelector("#t-name").val("");
-  document.querySelector("#t-amount").val("");
-
-}
-
 
 
 document.querySelector("#add-btn").onclick = function () {
-  clearForm();
+  console.log('WTF is happening?!');
   sendTransaction(true);
 };
 
 document.querySelector("#sub-btn").onclick = function () {
-  clearForm();
   sendTransaction(false);
 };
