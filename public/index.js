@@ -157,11 +157,11 @@ function clearForm() {
 
 }
 document.querySelector("#add-btn").onclick = function () {
-  clearForm;
+  clearForm();
   sendTransaction(true);
 };
 
 document.querySelector("#sub-btn").onclick = function () {
-  clearForm;
+  clearForm();
   sendTransaction(false);
 };
