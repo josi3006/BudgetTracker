@@ -150,10 +150,18 @@ function sendTransaction(isAdding) {
     });
 }
 
+
+function clearForm() {
+  document.querySelector("t-name").val("");
+  document.querySelector("t-amount").val("");
+
+}
 document.querySelector("#add-btn").onclick = function () {
+  clearForm;
   sendTransaction(true);
 };
 
 document.querySelector("#sub-btn").onclick = function () {
+  clearForm;
   sendTransaction(false);
 };
