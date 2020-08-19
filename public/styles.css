@@ -105,6 +105,7 @@ tr:nth-child(even) {
 canvas {
   max-width: 600px;
   margin-left: 40px;
+  margin-top: 40px;
 }
 
 
